@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
@@ -7,7 +8,8 @@ const AddTodo = ({ dispatch }) => {
 
     return (
         <div>
-            <form
+            
+            <Form
                 onSubmit={e => {
                     e.preventDefault()
 
@@ -18,9 +20,21 @@ const AddTodo = ({ dispatch }) => {
                     input.value = ''
                 }}
             >
-                <input ref={node => (input = node)} />
-                <button type='submit'>Add Todo</button>
-            </form>
+                <InputGroup>
+                    <Form.Control
+                        type='text'
+                        ref={ref => input = ref}
+                        placeholder='Input new to do...'
+                    />
+                    <InputGroup.Append>
+                        <Button
+                            type='submit'
+                            variant='secondary'>
+                            Add to do
+                        </Button>
+                    </InputGroup.Append>
+                </InputGroup>
+            </Form>
         </div>
     )
 }

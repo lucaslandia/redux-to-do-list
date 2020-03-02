@@ -1,14 +1,16 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import { Button } from 'react-bootstrap'
 
-const Link = ({ active, children, onClick }) =>
-    <button
+const Link = ({ active, children, onClick, variant }) =>
+    <Button
         onClick={onClick}
         disabled={active}
         style={{ marginLeft: '10px' }}
+        variant={variant}
     >
         {children}
-    </button>
+    </Button>
 
 Link.propTypes = {
     active: PropTypes.bool.isRequired,
